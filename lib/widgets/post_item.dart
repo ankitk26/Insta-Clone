@@ -22,7 +22,6 @@ class PostItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final _userId = AuthService().userId;
-    final _isPostLikedByUser = post.likes.contains(AuthService().userId);
 
     return StreamBuilder<UserModel>(
       stream: ProfileService().getProfile(_userId!),
