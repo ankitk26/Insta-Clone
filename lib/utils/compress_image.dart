@@ -9,9 +9,17 @@ Future<File> compressImage(File file) async {
     final baseName = p.basenameWithoutExtension(file.path);
     final targetPath = "$dirName/${baseName}_out$fileExt";
 
+    CompressFormat imageFormat = CompressFormat.jpeg;
+    if (fileExt == ".png") {
+      imageFormat = CompressFormat.png;
+    } else if (fileExt == ".webp") {
+      imageFormat = CompressFormat.webp;
+    }
+
     final result = await FlutterImageCompress.compressAndGetFile(
       file.path,
       targetPath,
+      format: imageFormat,
       quality: 50,
     );
     return result!;

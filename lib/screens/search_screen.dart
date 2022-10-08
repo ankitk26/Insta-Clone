@@ -54,7 +54,10 @@ class _SearchResults extends StatelessWidget {
 
             if (snapshot.data == null || snapshot.data!.isEmpty) {
               return const Center(
-                child: Text("No users found"),
+                child: Padding(
+                  padding: EdgeInsets.only(top: 16.0),
+                  child: Text("No users found"),
+                ),
               );
             }
 
