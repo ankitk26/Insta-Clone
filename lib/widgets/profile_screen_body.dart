@@ -13,11 +13,7 @@ class ProfileScreenBody extends StatelessWidget {
   const ProfileScreenBody({Key? key, required this.user}) : super(key: key);
 
   Future<void> _launchUrl() async {
-    if (!await launch(
-      user.website!,
-      forceSafariVC: false,
-      forceWebView: false,
-    )) {
+    if (!await launchUrl(Uri.parse(user.website!))) {
       throw "Could not launch ${user.website}";
     }
   }
